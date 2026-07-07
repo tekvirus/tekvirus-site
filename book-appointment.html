@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment | Tekvirus</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+        }
+        .book-wrapper {
+            max-width: 760px;
+            width: 100%;
+            background: var(--board-panel);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-md);
+            padding: 46px 42px;
+            position: relative;
+            z-index: 1;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-mono);
+            font-size: 13px;
+            color: var(--ink-dim);
+            margin-bottom: 34px;
+            transition: color .25s ease;
+        }
+        .back-link:hover { color: var(--circuit); }
+        .book-header { text-align: center; margin-bottom: 40px; }
+        .book-header .icon {
+            width: 56px; height: 56px; margin: 0 auto 18px;
+            display: flex; align-items: center; justify-content: center;
+            border: 1px solid var(--line-strong); border-radius: var(--radius-md);
+            color: var(--circuit); font-size: 22px;
+        }
+        .book-header h1 { font-size: 32px; margin-bottom: 10px; }
+        .book-header p { color: var(--ink-dim); font-size: 15px; }
+        .book-footer-note {
+            text-align: center; margin-top: 28px; padding-top: 26px;
+            border-top: 1px solid var(--line); color: var(--ink-dim); font-size: 13.5px;
+        }
+        .book-footer-note a { color: var(--circuit); }
+        label i { color: var(--circuit); margin-right: 6px; }
+        @media (max-width: 600px) {
+            .book-wrapper { padding: 32px 24px; }
+            .book-header h1 { font-size: 26px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-overlay"></div>
+
+    <div class="book-wrapper bracket always-marked">
+        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to home</a>
+
+        <div class="book-header">
+            <div class="icon"><i class="fas fa-calendar-check"></i></div>
+            <h1>Book a <span class="gradient-text">consultation</span></h1>
+            <p>Pick a slot and tell us what you're building — we'll confirm by email.</p>
+        </div>
+
+        <form id="appointmentForm">
+            <div class="form-row">
+                <div class="form-group"><label for="appt-name"><i class="fas fa-user"></i>Full name *</label><input type="text" id="appt-name" placeholder="Enter your full name" required></div>
+                <div class="form-group"><label for="appt-email"><i class="fas fa-envelope"></i>Email address *</label><input type="email" id="appt-email" placeholder="Enter your email" required></div>
+            </div>
+            <div class="form-row">
+                <div class="form-group"><label for="appt-phone"><i class="fas fa-phone"></i>Phone number *</label><input type="tel" id="appt-phone" placeholder="+91 9876543210" required></div>
+                <div class="form-group"><label for="appt-company"><i class="fas fa-building"></i>Company name</label><input type="text" id="appt-company" placeholder="Your company name"></div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="appt-service"><i class="fas fa-gear"></i>Service required *</label>
+                    <select id="appt-service" required>
+                        <option value="">Select a service</option>
+                        <option>Web Development</option><option>App Development</option><option>SEO Optimization</option>
+                        <option>Video Editing</option><option>Technical Support</option><option>Ethical Hacking</option>
+                        <option>Digital Marketing</option><option>Trading & Investment</option><option>UI/UX Design</option>
+                        <option>Content Creation</option><option>General Consultation</option>
+                    </select>
+                </div>
+                <div class="form-group"><label for="appt-date"><i class="fas fa-calendar"></i>Preferred date *</label><input type="date" id="appt-date" required></div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="appt-time"><i class="fas fa-clock"></i>Preferred time *</label>
+                    <select id="appt-time" required>
+                        <option value="">Select time slot</option>
+                        <option>09:00 AM - 10:00 AM</option><option>10:00 AM - 11:00 AM</option><option>11:00 AM - 12:00 PM</option>
+                        <option>12:00 PM - 01:00 PM</option><option>02:00 PM - 03:00 PM</option><option>03:00 PM - 04:00 PM</option>
+                        <option>04:00 PM - 05:00 PM</option><option>05:00 PM - 06:00 PM</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="appt-mode"><i class="fas fa-video"></i>Consultation mode *</label>
+                    <select id="appt-mode" required>
+                        <option value="">Select mode</option>
+                        <option>Online (Google Meet)</option><option>Online (Zoom)</option><option>Phone Call</option><option>In-Person (Office)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group"><label for="appt-message"><i class="fas fa-comment"></i>Additional information</label><textarea id="appt-message" rows="4" placeholder="Tell us about your requirements or any specific questions..."></textarea></div>
+
+            <div class="form-status" id="apptFormStatus"></div>
+
+            <button type="submit" class="btn-submit" id="apptSubmitBtn"><i class="fas fa-calendar-check"></i> <span>Book Appointment</span></button>
+        </form>
+
+        <div class="book-footer-note">
+            <p>Need immediate assistance? <a href="tel:7904321890">Call 7904321890</a> or <a href="mailto:techvirusofficial@gmail.com">email us</a></p>
+        </div>
+    </div>
+
+    <script src="js/emailjs-config.js"></script>
+    <script src="js/forms.js"></script>
+</body>
+</html>

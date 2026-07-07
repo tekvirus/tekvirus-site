@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tekvirus — Dindigul-based studio building web, app, security and growth solutions. Ideas routed into working digital products.">
+    <title>Tekvirus | Ideas Routed Into Digital Products</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <canvas id="bg-canvas"></canvas>
+    <div class="bg-overlay"></div>
+
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <span class="logo-text">TEK</span><span class="logo-highlight">VIRUS</span>
+            </a>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active"><span class="idx">01</span>Home</a></li>
+                <li><a href="#services" class="nav-link"><span class="idx">02</span>Services</a></li>
+                <li><a href="#about" class="nav-link"><span class="idx">03</span>About</a></li>
+                <li><a href="#gallery" class="nav-link"><span class="idx">04</span>Gallery</a></li>
+                <li><a href="#team" class="nav-link"><span class="idx">05</span>Team</a></li>
+                <li><a href="#testimonials" class="nav-link"><span class="idx">06</span>Reviews</a></li>
+                <li><a href="#contact" class="nav-link"><span class="idx">07</span>Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="#contact" class="btn-nav-contact"><i class="fas fa-phone"></i> Contact</a>
+                <a href="book-appointment.html" class="btn-nav-book">Book Online <i class="fas fa-arrow-right"></i></a>
+                <div class="nav-toggle" id="navToggle">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- ==================== HERO ==================== -->
+        <section id="home" class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-badge"><i class="fas fa-satellite-dish"></i> Dindigul · Tamil Nadu</div>
+                    <h1 class="hero-title">Ideas, routed into <span class="gradient-text">digital products</span></h1>
+                    <p class="hero-description">Tekvirus is a small studio that builds the web apps, mobile products, and secure infrastructure behind growing businesses — end to end, from first sketch to shipped release.</p>
+                    <div class="hero-buttons">
+                        <a href="#services" class="btn-primary">Explore Services <i class="fas fa-arrow-right"></i></a>
+                        <a href="#contact" class="btn-secondary"><i class="fas fa-circle-play"></i> Get In Touch</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item"><span class="stat-number" data-target="5">0+</span><span class="stat-label">Projects Shipped</span></div>
+                        <div class="stat-item"><span class="stat-number" data-target="5">0+</span><span class="stat-label">Happy Clients</span></div>
+                        <div class="stat-item"><span class="stat-number" data-target="2">0+</span><span class="stat-label">Years Running</span></div>
+                    </div>
+                </div>
+
+                <div class="hero-image">
+                    <div class="hero-3d-icon bracket always-marked">
+                        <div class="hero-viewport-label"><span class="dot"></span>board.render()</div>
+                        <div class="hero-viewport-tag">// live</div>
+                        <svg viewBox="0 0 300 300" width="100%" height="100%" style="display:block;padding:30px;box-sizing:border-box;">
+                            <g fill="none" stroke="#2A3F8F" stroke-width="1.4">
+                                <path d="M20 60 H120 V30 H260" />
+                                <path d="M20 130 H80 V190 H180 V150 H260" />
+                                <path d="M20 220 H140 V260 H260" />
+                                <path d="M150 30 V0" />
+                                <path d="M150 260 V300" />
+                            </g>
+                            <g fill="none" stroke="#4C7CFF" stroke-width="2" opacity="0.55">
+                                <rect x="118" y="95" width="64" height="64" rx="4" />
+                                <path d="M150 95 V60" />
+                                <path d="M150 159 V190" />
+                                <path d="M118 127 H80" />
+                                <path d="M182 127 H220" />
+                            </g>
+                            <circle cx="120" cy="30" r="3.5" fill="#FFB020"><animate attributeName="opacity" values="1;0.2;1" dur="1.8s" repeatCount="indefinite"/></circle>
+                            <circle cx="80" cy="190" r="3.5" fill="#4C7CFF"><animate attributeName="opacity" values="0.2;1;0.2" dur="2.4s" repeatCount="indefinite"/></circle>
+                            <circle cx="260" cy="150" r="3.5" fill="#FFB020"><animate attributeName="opacity" values="1;0.2;1" dur="2.1s" repeatCount="indefinite"/></circle>
+                            <circle cx="140" cy="260" r="3.5" fill="#47D18C"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.6s" repeatCount="indefinite"/></circle>
+                            <text x="150" y="131" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#8A93A6">IDEA</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SERVICES ==================== -->
+        <section id="services">
+            <div class="container">
+                <div class="section-header">
+                    <span class="eyebrow">// 02 — capabilities</span>
+                    <h2 class="section-title">What we <span class="gradient-text">build</span></h2>
+                    <p class="section-description">Ten disciplines, one studio. Pick a lane below or bring us the whole project.</p>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card" data-aos="fade-up"><div class="service-card-icon"><i class="fas fa-globe"></i></div><h3>Web Development</h3><p>Responsive, SEO-optimized websites on modern stacks.</p><a href="#contact" class="service-link">Get started <i class="fas fa-arrow-right"></i></a></div>
+                    <div class="service-card" data-aos="fade-up"><div class="service-card-icon"><i class="fas fa-mobile-screen-button"></i></div><h3>App Development</h3><p>Native iOS &amp; Android apps with clean UX.</p><a href="#contact" class="service-link">Get started <i class="fas fa-arrow-right"></i></a></div>
+                    <div class="service-card" data-aos="fade-up"><div class="service-card-icon"><i class="fas fa-magnifying-glass-chart"></i></div><h3>SEO Optimization</h3><p>Data-driven strategy to grow search rankings.</p><a href="#contact" class="service-link">Get started <i class="fas fa-arrow-right"></i></a></div>
+                    <div class="service-card" data-aos="fade-up"><div class="service-card-icon"><i class="fas fa-video"></i></div><h3>Video Editing</h3><p>Editing, color grading &amp; motion graphics.</p><a href="#contact" class="service-link">Get started <i class="fas fa-arrow-right"></i></a></div>
+                    <div class="service-card" data-aos="fade-up"><div class="service-card-icon"><i class="fas fa-headset"></i></div><h3>Technical Support</h3><p>24/7 IT support &amp; system maintenance.</p><a href="#contact" class="service-link">Get started <i class="fas fa-arrow-right"></i></a></div>
+                    <div class="service-card" data-aos="fade-up"><div class="service-card-icon"><i class="fas fa-shield-halved"></i></div><h3>Ethical Hacking</h3><p>Penetration testing &amp; cybersecurity audits.</p><a href="#contact" class="service-link">Get started <i class="fas fa-arrow-right"></i></a></div>
+                    <div class="service-card" data-aos="fade-up"><div class="service-card-icon"><i class="fas fa-bullhorn"></i></div><h3>Digital Marketing</h3><p>Social, PPC &amp; brand growth strategy.</p><a href="#contact" class="service-link">Get started <i class="fas fa-arrow-right"></i></a></div>
+                    <div class="service-card" data-aos="fade-up"><div class="service-card-icon"><i class="fas fa-chart-line"></i></div><h3>Trading &amp; Investment</h3><p>Market analysis &amp; crypto advisory.</p><a href="#contact" class="service-link">Get started <i class="fas fa-arrow-right"></i></a></div>
+                    <div class="service-card" data-aos="fade-up"><div class="service-card-icon"><i class="fas fa-palette"></i></div><h3>UI/UX Design</h3><p>User-centered, conversion-focused design.</p><a href="#contact" class="service-link">Get started <i class="fas fa-arrow-right"></i></a></div>
+                    <div class="service-card" data-aos="fade-up"><div class="service-card-icon"><i class="fas fa-pen-to-square"></i></div><h3>Content Creation</h3><p>Copywriting, blogs &amp; multimedia content.</p><a href="#contact" class="service-link">Get started <i class="fas fa-arrow-right"></i></a></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== GALLERY ==================== -->
+        <section id="gallery" class="gallery-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="eyebrow">// 04 — shipped work</span>
+                    <h2 class="section-title">Project <span class="gradient-text">gallery</span></h2>
+                    <p class="section-description">A sample of recent builds across web, app, design, security and growth.</p>
+                </div>
+
+                <div class="gallery-filter">
+                    <button class="filter-btn active" data-filter="all">All projects</button>
+                    <button class="filter-btn" data-filter="web">Web development</button>
+                    <button class="filter-btn" data-filter="app">App development</button>
+                    <button class="filter-btn" data-filter="design">UI/UX design</button>
+                    <button class="filter-btn" data-filter="marketing">Digital marketing</button>
+                    <button class="filter-btn" data-filter="security">Ethical hacking</button>
+                </div>
+
+                <div class="gallery-grid">
+                    <div class="gallery-item bracket" data-category="web">
+                        <div class="gallery-image"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600" alt="E-commerce Website" onerror="this.style.display='none'"><div class="gallery-overlay"><i class="fas fa-magnifying-glass-plus"></i></div></div>
+                        <div class="gallery-info"><h4>E-Commerce Platform</h4><p>Full-stack storefront with payment integration.</p><div class="gallery-tags"><span class="gallery-tag">React</span><span class="gallery-tag">Node.js</span><span class="gallery-tag">MongoDB</span></div></div>
+                    </div>
+                    <div class="gallery-item bracket" data-category="web">
+                        <div class="gallery-image"><img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600" alt="Corporate Website" onerror="this.style.display='none'"><div class="gallery-overlay"><i class="fas fa-magnifying-glass-plus"></i></div></div>
+                        <div class="gallery-info"><h4>Corporate Website</h4><p>Responsive site with CMS integration.</p><div class="gallery-tags"><span class="gallery-tag">WordPress</span><span class="gallery-tag">PHP</span><span class="gallery-tag">MySQL</span></div></div>
+                    </div>
+                    <div class="gallery-item bracket" data-category="app">
+                        <div class="gallery-image"><img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600" alt="Food Delivery App" onerror="this.style.display='none'"><div class="gallery-overlay"><i class="fas fa-magnifying-glass-plus"></i></div></div>
+                        <div class="gallery-info"><h4>Food Delivery App</h4><p>Cross-platform app with live order tracking.</p><div class="gallery-tags"><span class="gallery-tag">Flutter</span><span class="gallery-tag">Firebase</span></div></div>
+                    </div>
+                    <div class="gallery-item bracket" data-category="app">
+                        <div class="gallery-image"><img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600" alt="Fitness App" onerror="this.style.display='none'"><div class="gallery-overlay"><i class="fas fa-magnifying-glass-plus"></i></div></div>
+                        <div class="gallery-info"><h4>Fitness Tracker App</h4><p>Health app with workout tracking.</p><div class="gallery-tags"><span class="gallery-tag">React Native</span><span class="gallery-tag">AWS</span></div></div>
+                    </div>
+                    <div class="gallery-item bracket" data-category="design">
+                        <div class="gallery-image"><img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600" alt="Dashboard Design" onerror="this.style.display='none'"><div class="gallery-overlay"><i class="fas fa-magnifying-glass-plus"></i></div></div>
+                        <div class="gallery-info"><h4>Admin Dashboard UI</h4><p>Modern dashboard interface design.</p><div class="gallery-tags"><span class="gallery-tag">Figma</span><span class="gallery-tag">Adobe XD</span></div></div>
+                    </div>
+                    <div class="gallery-item bracket" data-category="marketing">
+                        <div class="gallery-image"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600" alt="Social Media Campaign" onerror="this.style.display='none'"><div class="gallery-overlay"><i class="fas fa-magnifying-glass-plus"></i></div></div>
+                        <div class="gallery-info"><h4>Social Media Campaign</h4><p>Brand awareness campaign reaching 1M+ users.</p><div class="gallery-tags"><span class="gallery-tag">Meta Ads</span><span class="gallery-tag">Google Ads</span></div></div>
+                    </div>
+                    <div class="gallery-item bracket" data-category="security">
+                        <div class="gallery-image"><img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=600" alt="Security Audit" onerror="this.style.display='none'"><div class="gallery-overlay"><i class="fas fa-magnifying-glass-plus"></i></div></div>
+                        <div class="gallery-info"><h4>Security Audit Report</h4><p>Full penetration testing for enterprise.</p><div class="gallery-tags"><span class="gallery-tag">PenTest</span><span class="gallery-tag">Vulnerability</span></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== ABOUT ==================== -->
+        <section id="about">
+            <div class="container">
+                <div class="about-wrapper">
+                    <div class="about-content" data-aos="fade-right">
+                        <span class="eyebrow">// 03 — the studio</span>
+                        <h2 class="section-title">About our <span class="gradient-text">tech team</span></h2>
+                        <div class="about-description">
+                            <p>We're a results-driven team delivering high-performance websites, mobile apps, UI/UX design, data analytics, ethical hacking, penetration testing, video editing and custom software.</p>
+                            <p>We combine creativity, security expertise and data-driven strategy to build scalable digital products that help businesses grow faster and operate smarter.</p>
+                            <p>End-to-end digital transformation: full-stack development, cloud-based software, advanced cybersecurity, and enterprise applications tailored for modern business.</p>
+                        </div>
+                        <div class="about-features">
+                            <div class="feature-item"><i class="fas fa-check-circle"></i><span>Website development — responsive &amp; SEO optimized</span></div>
+                            <div class="feature-item"><i class="fas fa-check-circle"></i><span>Mobile app development — Android &amp; iOS</span></div>
+                            <div class="feature-item"><i class="fas fa-check-circle"></i><span>UI/UX design — user-centered &amp; conversion-focused</span></div>
+                            <div class="feature-item"><i class="fas fa-check-circle"></i><span>Data analytics &amp; business intelligence</span></div>
+                            <div class="feature-item"><i class="fas fa-check-circle"></i><span>Ethical hacking &amp; penetration testing</span></div>
+                            <div class="feature-item"><i class="fas fa-check-circle"></i><span>Video editing &amp; digital media production</span></div>
+                            <div class="feature-item"><i class="fas fa-check-circle"></i><span>Custom software development solutions</span></div>
+                        </div>
+                    </div>
+                    <div class="about-image" data-aos="fade-left">
+                        <div class="about-image-container bracket always-marked">
+                            <i class="fas fa-users-gear about-3d-icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== TEAM ==================== -->
+        <section id="team" class="team-section">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="eyebrow">// 05 — the roster</span>
+                    <h2 class="section-title">Meet our <span class="gradient-text">experts</span></h2>
+                    <p class="section-description">Talented professionals dedicated to your success.</p>
+                </div>
+
+                <div class="team-grid">
+                    <div class="team-card" data-aos="fade-up">
+                        <div class="team-card-image"><img src="assets/images/team/ceo-alagesan.jpg" alt="Mr. Alagesan - CEO" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="team-image-placeholder" style="display:none;"><i class="fas fa-user-tie"></i></div></div>
+                        <div class="team-card-info"><span class="ceo-badge">CEO</span><h3>Mr. Alagesan</h3><span class="team-role">CEO &amp; Founder</span><div class="team-social"><a href="#"><i class="fab fa-linkedin"></i></a><a href="#"><i class="fab fa-twitter"></i></a></div></div>
+                    </div>
+                    <div class="team-card" data-aos="fade-up">
+                        <div class="team-card-image"><img src="assets/images/team/valan-joshwa.jpg" alt="Valan Joshwa" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="team-image-placeholder" style="display:none;"><i class="fas fa-user-circle"></i></div></div>
+                        <div class="team-card-info"><h3>Valan Joshwa</h3><span class="team-role">Lead Developer</span><div class="team-social"><a href="#"><i class="fab fa-linkedin"></i></a><a href="#"><i class="fab fa-github"></i></a></div></div>
+                    </div>
+                    <div class="team-card" data-aos="fade-up">
+                        <div class="team-card-image"><img src="assets/images/team/giri-prasath.jpg" alt="Giri Prasath" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="team-image-placeholder" style="display:none;"><i class="fas fa-user-shield"></i></div></div>
+                        <div class="team-card-info"><h3>Giri Prasath</h3><span class="team-role">Security Analyst</span><div class="team-social"><a href="#"><i class="fab fa-linkedin"></i></a><a href="#"><i class="fab fa-twitter"></i></a></div></div>
+                    </div>
+                    <div class="team-card" data-aos="fade-up">
+                        <div class="team-card-image"><img src="assets/images/team/raghul.jpg" alt="Raghul" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="team-image-placeholder" style="display:none;"><i class="fas fa-user-circle"></i></div></div>
+                        <div class="team-card-info"><h3>Raghul</h3><span class="team-role">Digital Marketer</span><div class="team-social"><a href="#"><i class="fab fa-linkedin"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div></div>
+                    </div>
+                    <div class="team-card" data-aos="fade-up">
+                        <div class="team-card-image"><img src="assets/images/team/seeni-vasan.jpg" alt="Seeni Vasan" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="team-image-placeholder" style="display:none;"><i class="fas fa-paintbrush"></i></div></div>
+                        <div class="team-card-info"><h3>Seeni Vasan</h3><span class="team-role">UI/UX Designer</span><div class="team-social"><a href="#"><i class="fab fa-linkedin"></i></a><a href="#"><i class="fab fa-dribbble"></i></a></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== TESTIMONIALS ==================== -->
+        <section id="testimonials" class="testimonials-section">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="eyebrow">// 06 — client notes</span>
+                    <h2 class="section-title">What our <span class="gradient-text">clients say</span></h2>
+                </div>
+
+                <div class="testimonials-grid">
+                    <div class="testimonial-card" data-aos="fade-up">
+                        <div class="testimonial-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="testimonial-text">"Tekvirus transformed our online presence completely. The web team delivered beyond expectations — highly professional."</p>
+                        <div class="testimonial-author"><strong>Rajesh Kumar</strong><span>CEO, TechStart India</span></div>
+                    </div>
+                    <div class="testimonial-card" data-aos="fade-up">
+                        <div class="testimonial-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="testimonial-text">"Their ethical hacking service identified critical vulnerabilities. The penetration testing was thorough and invaluable."</p>
+                        <div class="testimonial-author"><strong>Priya Sharma</strong><span>CTO, SecureNet Solutions</span></div>
+                    </div>
+                    <div class="testimonial-card" data-aos="fade-up">
+                        <div class="testimonial-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        <p class="testimonial-text">"App development was smooth, on time, and exceeded expectations. Our app has received excellent user feedback."</p>
+                        <div class="testimonial-author"><strong>Arun Venkat</strong><span>Founder, MobileFirst Apps</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== CONTACT ==================== -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="eyebrow">// 07 — say hello</span>
+                    <h2 class="section-title">Get in <span class="gradient-text">touch</span></h2>
+                    <p class="section-description">Have a project in mind? Let's talk it through.</p>
+                </div>
+
+                <div class="contact-wrapper">
+                    <div class="contact-form-container">
+                        <form class="contact-form" id="contactForm">
+                            <div class="form-row">
+                                <div class="form-group"><label for="name">Full name *</label><input type="text" id="name" name="name" placeholder="John Doe" required></div>
+                                <div class="form-group"><label for="email">Email address *</label><input type="email" id="email" name="email" placeholder="john@example.com" required></div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group"><label for="phone">Phone number</label><input type="tel" id="phone" name="phone" placeholder="+91 9876543210"></div>
+                                <div class="form-group">
+                                    <label for="service">Service interested in</label>
+                                    <select id="service" name="service">
+                                        <option value="">Select service</option>
+                                        <option value="Web Development">Web Development</option>
+                                        <option value="App Development">App Development</option>
+                                        <option value="SEO Optimization">SEO Optimization</option>
+                                        <option value="Video Editing">Video Editing</option>
+                                        <option value="Technical Support">Technical Support</option>
+                                        <option value="Ethical Hacking">Ethical Hacking</option>
+                                        <option value="Digital Marketing">Digital Marketing</option>
+                                        <option value="Trading & Investment">Trading & Investment</option>
+                                        <option value="UI/UX Design">UI/UX Design</option>
+                                        <option value="Content Creation">Content Creation</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group"><label for="message">Message *</label><textarea id="message" name="message" rows="5" placeholder="Tell us about your project..." required></textarea></div>
+                            <div class="form-status" id="formStatus"></div>
+                            <button type="submit" class="btn-submit" id="submitBtn"><i class="fas fa-paper-plane"></i> <span>Send Message</span></button>
+                        </form>
+                    </div>
+
+                    <div class="contact-info-container">
+                        <div class="map-wrapper">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3922.22628845447!2d77.97742741533434!3d10.360485492564843!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b00ab0045ce60cf%3A0x9f1ff1e3d4bb0064!2sDindigul%20bus%20stand!5e0!3m2!1sen!2sin!4v1690000000000" width="100%" height="280" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                        <div class="contact-details">
+                            <div class="contact-item"><div class="contact-icon"><i class="fas fa-phone"></i></div><div class="contact-text"><h4>Call us</h4><p><a href="tel:7904321890">7904321890</a></p></div></div>
+                            <div class="contact-item"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div class="contact-text"><h4>Email us</h4><p><a href="mailto:techvirusofficial@gmail.com">techvirusofficial@gmail.com</a></p></div></div>
+                            <div class="contact-item"><div class="contact-icon"><i class="fas fa-location-dot"></i></div><div class="contact-text"><h4>Location</h4><p>Dindigul Bus Stand, Tamil Nadu</p></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-brand">
+                    <a href="#home" class="footer-logo"><span class="logo-text" style="color:var(--ink)">TEK</span><span class="logo-highlight" style="color:var(--signal)">VIRUS</span></a>
+                    <p>Transforming ideas into scalable, secure digital products for modern businesses.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col"><h4>Quick links</h4><ul><li><a href="#home">Home</a></li><li><a href="#services">Services</a></li><li><a href="#about">About us</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#team">Our team</a></li><li><a href="#testimonials">Testimonials</a></li></ul></div>
+                <div class="footer-col"><h4>Our services</h4><ul><li><a href="#services">Web development</a></li><li><a href="#services">App development</a></li><li><a href="#services">Ethical hacking</a></li><li><a href="#services">Digital marketing</a></li><li><a href="#services">UI/UX design</a></li></ul></div>
+                <div class="footer-col"><h4>Contact info</h4><ul class="footer-contact-list"><li><i class="fas fa-phone"></i> <a href="tel:7904321890">7904321890</a></li><li><i class="fas fa-envelope"></i> <a href="mailto:techvirusofficial@gmail.com">techvirusofficial@gmail.com</a></li><li><i class="fas fa-location-dot"></i> Dindigul, Tamil Nadu</li></ul></div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Tekvirus. All rights reserved.</p>
+                <p style="font-family:var(--font-mono)">design/v2 — signal-board</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== CHATBOT ==================== -->
+    <div class="chatbot-container">
+        <button class="chatbot-toggle" id="chatToggle" aria-label="Open chat"><i class="fas fa-robot"></i></button>
+        <div class="chatbot-window" id="chatWindow">
+            <div class="chatbot-header">
+                <div class="chatbot-header-left"><i class="fas fa-robot"></i><div><h4>Tekvirus Assistant</h4><span>● online</span></div></div>
+                <button class="chatbot-close" id="chatClose" aria-label="Close chat"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="chatbot-messages" id="chatMessages">
+                <div class="message bot"><div class="message-content">👋 Hey! Welcome to Tekvirus. What can I help you with?</div></div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" id="chatInput" placeholder="Type your message..." aria-label="Chat message">
+                <button id="chatSend" aria-label="Send message"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightboxClose">&times;</button>
+            <img src="" alt="Project" id="lightboxImg">
+            <p class="lightbox-caption" id="lightboxCaption"></p>
+        </div>
+    </div>
+
+    <!-- Three.js import map + signature background -->
+    <script type="importmap">
+        { "imports": { "three": "https://unpkg.com/three@0.128.0/build/three.module.js" } }
+    </script>
+    <script type="module" src="js/three-background.js"></script>
+
+    <script src="js/navigation.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="js/emailjs-config.js"></script>
+    <script src="js/forms.js"></script>
+
+    <!-- Gallery filter + lightbox -->
+    <script>
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxCaption = document.getElementById('lightboxCaption');
+        const lightboxClose = document.getElementById('lightboxClose');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.dataset.category === filter) {
+                        item.style.display = 'block';
+                        setTimeout(() => item.classList.add('visible'), 80);
+                    } else {
+                        item.style.display = 'none';
+                        item.classList.remove('visible');
+                    }
+                });
+            });
+        });
+
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const img = item.querySelector('img');
+                const title = item.querySelector('h4').textContent;
+                lightboxImg.src = (img && img.src && img.style.display !== 'none') ? img.src : 'https://via.placeholder.com/800x500/12151C/4C7CFF?text=Project+Image';
+                lightboxCaption.textContent = title;
+                lightbox.classList.add('active');
+            });
+        });
+
+        lightboxClose.addEventListener('click', () => lightbox.classList.remove('active'));
+        lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.classList.remove('active'); });
+
+        galleryItems.forEach(item => item.classList.add('visible'));
+    </script>
+</body>
+</html>

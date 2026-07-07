@@ -1,0 +1,73 @@
+/* ============================================================
+   TEKVIRUS — ANIMATIONS
+   ============================================================ */
+
+@keyframes cursorBlink {
+    0%, 45% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+}
+
+@keyframes pulseDot {
+    0%, 100% { opacity: 1; box-shadow: 0 0 6px var(--trace-ok); }
+    50% { opacity: .45; box-shadow: 0 0 2px var(--trace-ok); }
+}
+
+@keyframes floatY {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes rotateSlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes traceFlow {
+    0% { background-position: 0 0; }
+    100% { background-position: 24px 0; }
+}
+
+/* Reveal-on-scroll (used via data-aos + JS toggling .aos-animate) */
+[data-aos] {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity .7s var(--ease), transform .7s var(--ease);
+}
+[data-aos].aos-animate { opacity: 1; transform: translateY(0); }
+
+[data-aos="fade-left"] { transform: translateX(-28px); }
+[data-aos="fade-left"].aos-animate { transform: translateX(0); }
+
+[data-aos="fade-right"] { transform: translateX(28px); }
+[data-aos="fade-right"].aos-animate { transform: translateX(0); }
+
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+/* Staggered reveal for grids: nth-child delay via inline custom property fallback */
+.services-grid [data-aos],
+.gallery-grid [data-aos],
+.team-grid [data-aos],
+.testimonials-grid [data-aos] {
+    transition-delay: calc(var(--stagger, 0) * 70ms);
+}
+
+/* Loading spinner (form submit states) */
+.spinner {
+    width: 16px; height: 16px;
+    border: 2px solid var(--line-strong);
+    border-top-color: var(--circuit);
+    border-radius: 50%;
+    animation: rotateSlow .7s linear infinite;
+    display: inline-block;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+}
