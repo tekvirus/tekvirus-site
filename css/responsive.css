@@ -55,7 +55,7 @@
     }
 
     .about-image {
-        order: -2;
+        order: -1;
         max-width: 380px;
         margin: 0 auto;
     }
