@@ -633,7 +633,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
     color: var(--ink-faint);
 }
 .team-card-info { padding: 18px; text-align: center; position: relative; }
-.team-card-info h3 { font-size: 15.5px; margin-bottom: 4px; color: var(--ink); }
+.team-card-info h3 { font-size: 20px; margin-bottom: 4px; color: var(--ink); }
 .team-role { font-family: var(--font-mono); font-size: 11px; color: var(--ink-dim); display: block; margin-bottom: 10px; }
 .ceo-badge {
     position: absolute; top: -10px; right: 14px;
