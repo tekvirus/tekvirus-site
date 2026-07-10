@@ -2,17 +2,48 @@
 // FORMS HANDLER - Contact & Appointment Forms
 // ============================================
 
+// Configuration - In production, these would be environment variables
+const CONFIG = {
+    EMAILJS: {
+        SERVICE_ID: 'service_lb9tr7p', // Replace with your actual service ID
+        TEMPLATES: {
+            CONTACT_FORM: 'template_lcx2lx9', // Replace with your template ID
+            APPOINTMENT_FORM: 'template_k56dskv' // Replace with your template ID
+        },
+        PUBLIC_KEY: 'f4-h8mBb1caW_Eg3n' // Replace with your public key
+    },
+    BUSINESS_EMAIL: 'techvirusofficial@gmail.com',
+    BACKEND_URL: 'http://localhost:5000/api' // Update with your backend URL
+};
+
 class FormsHandler {
     constructor() {
         this.contactForm = document.getElementById('contactForm');
         this.appointmentForm = document.getElementById('appointmentForm');
         this.isSubmitting = false;
         
+        // Initialize EmailJS
+        this.initEmailJS();
+        
         this.init();
     }
     
+    initEmailJS() {
+        // Initialize EmailJS with public key
+        if (typeof emailjs !== 'undefined') {
+            emailjs.init({
+                publicKey: CONFIG.EMAILJS.PUBLIC_KEY,
+                // Uncomment for production with private key
+                // privateKey: CONFIG.EMAILJS.PRIVATE_KEY
+            });
+            console.log('EmailJS initialized successfully');
+        } else {
+            console.warn('EmailJS library not loaded');
+        }
+    }
+    
     init() {
-        // Set minimum date for appointment to today
+        // Set minimum date for appointment to tomorrow
         this.setMinDate();
         
         // Contact Form Submit
@@ -54,7 +85,7 @@ class FormsHandler {
         }
     }
     
-    // Handle Contact Form Submission
+    // ==================== CONTACT FORM HANDLER ====================
     async handleContactSubmit(e) {
         e.preventDefault();
         
@@ -91,30 +122,43 @@ class FormsHandler {
         this.showStatus('contactForm', 'Sending your message...', 'loading');
         
         try {
-            // Send email using EmailJS
+            // STEP 1: Send email using EmailJS
             const templateParams = {
                 from_name: formData.name,
                 from_email: formData.email,
                 phone: formData.phone || 'Not provided',
                 service: formData.service || 'Not specified',
                 message: formData.message,
-                to_email: window.EMAILJS_CONFIG.BUSINESS_EMAIL,
+                to_email: CONFIG.BUSINESS_EMAIL,
                 reply_to: formData.email
             };
             
             await emailjs.send(
-                window.EMAILJS_CONFIG.SERVICE_ID,
-                window.EMAILJS_CONFIG.TEMPLATES.CONTACT_FORM,
+                CONFIG.EMAILJS.SERVICE_ID,
+                CONFIG.EMAILJS.TEMPLATES.CONTACT_FORM,
                 templateParams
             );
+            
+            // STEP 2: Send data to backend for MongoDB storage
+            const backendResponse = await this.sendToBackend('/contact', formData);
+            
+            if (!backendResponse.success) {
+                console.warn('Backend storage failed but email was sent:', backendResponse.message);
+            }
             
             // Success
             this.showStatus('contactForm', '✅ Message sent successfully! We will contact you soon.', 'success');
             form.reset();
             
         } catch (error) {
-            console.error('EmailJS Error:', error);
-            this.showStatus('contactForm', '❌ Failed to send message. Please try again or contact us directly at techvirusofficial@gmail.com', 'error');
+            console.error('Error:', error);
+            
+            // Check if it's an EmailJS error
+            if (error.text) {
+                this.showStatus('contactForm', `❌ Email failed: ${error.text}`, 'error');
+            } else {
+                this.showStatus('contactForm', '❌ Failed to send message. Please try again or contact us directly.', 'error');
+            }
         } finally {
             this.isSubmitting = false;
             submitBtn.disabled = false;
@@ -122,7 +166,7 @@ class FormsHandler {
         }
     }
     
-    // Handle Appointment Form Submission
+    // ==================== APPOINTMENT FORM HANDLER ====================
     async handleAppointmentSubmit(e) {
         e.preventDefault();
         
@@ -163,7 +207,7 @@ class FormsHandler {
         this.showStatus('appointmentForm', 'Booking your appointment...', 'loading');
         
         try {
-            // Send email using EmailJS
+            // STEP 1: Send email using EmailJS
             const templateParams = {
                 from_name: formData.name,
                 from_email: formData.email,
@@ -174,23 +218,47 @@ class FormsHandler {
                 appointment_time: formData.time,
                 consultation_mode: formData.mode,
                 additional_info: formData.message || 'No additional information',
-                to_email: window.EMAILJS_CONFIG.BUSINESS_EMAIL,
+                to_email: CONFIG.BUSINESS_EMAIL,
                 reply_to: formData.email
             };
             
             await emailjs.send(
-                window.EMAILJS_CONFIG.SERVICE_ID,
-                window.EMAILJS_CONFIG.TEMPLATES.APPOINTMENT_FORM,
+                CONFIG.EMAILJS.SERVICE_ID,
+                CONFIG.EMAILJS.TEMPLATES.APPOINTMENT_FORM,
                 templateParams
             );
+            
+            // STEP 2: Send data to backend for MongoDB storage
+            const backendData = {
+                name: formData.name,
+                email: formData.email,
+                phone: formData.phone,
+                company: formData.company,
+                service: formData.service,
+                date: formData.date,
+                time: formData.time,
+                mode: formData.mode,
+                message: formData.message
+            };
+            
+            const backendResponse = await this.sendToBackend('/appointment', backendData);
+            
+            if (!backendResponse.success) {
+                console.warn('Backend storage failed but email was sent:', backendResponse.message);
+            }
             
             // Success
             this.showStatus('appointmentForm', '✅ Appointment booked successfully! We will confirm via email shortly.', 'success');
             form.reset();
             
         } catch (error) {
-            console.error('EmailJS Error:', error);
-            this.showStatus('appointmentForm', '❌ Booking failed. Please try again or call us at 7904321890.', 'error');
+            console.error('Error:', error);
+            
+            if (error.text) {
+                this.showStatus('appointmentForm', `❌ Booking failed: ${error.text}`, 'error');
+            } else {
+                this.showStatus('appointmentForm', '❌ Booking failed. Please try again or call us for assistance.', 'error');
+            }
         } finally {
             this.isSubmitting = false;
             submitBtn.disabled = false;
@@ -198,7 +266,35 @@ class FormsHandler {
         }
     }
     
-    // Email validation
+    // ==================== BACKEND API CALL ====================
+    async sendToBackend(endpoint, data) {
+        try {
+            const response = await fetch(`${CONFIG.BACKEND_URL}${endpoint}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            });
+            
+            const result = await response.json();
+            
+            if (!response.ok) {
+                throw new Error(result.message || 'Backend request failed');
+            }
+            
+            return result;
+        } catch (error) {
+            console.error('Backend API error:', error);
+            // Don't throw - we want to continue even if backend fails (email already sent)
+            return {
+                success: false,
+                message: error.message || 'Backend storage failed'
+            };
+        }
+    }
+    
+    // ==================== EMAIL VALIDATION ====================
     validateEmail(email) {
         const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return re.test(email);
